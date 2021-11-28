@@ -1,0 +1,19 @@
+version: '3.8'
+
+secrets:
+  id_rsa:
+    file:
+  id_rsa.pub:
+    file:
+  known_hosts:
+    file:
+
+services:
+
+  php_broadway_sensitive_serializer:
+    environment:
+      - AGGREGATE_MASTER_KEY="SS3kr3tK31"
+
+  servicedb:
+    ports:
+      - "3310:3306"

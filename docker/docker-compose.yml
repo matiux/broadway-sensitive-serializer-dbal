@@ -1,0 +1,49 @@
+version: '3.8'
+
+volumes:
+  app_database: {}
+
+networks:
+  sensitive_serializer_network_dbal:
+    name: sensitive_serializer_network_dbal
+    driver: bridge
+
+services:
+
+  php_broadway_sensitive_serializer_dbal:
+    build: php
+    hostname: sensitive_serializer
+    volumes:
+      - ../:/var/www/app:delegated
+      - ./data/shell_history:/home/utente/shell_history
+    networks:
+      - sensitive_serializer_network_dbal
+    environment:
+      - HISTFILE=/home/utente/shell_history/.x_history
+    secrets:
+      - source: id_rsa
+        target: /home/utente/.ssh/id_rsa
+      - source: id_rsa.pub
+        target: /home/utente/.ssh/id_rsa.pub
+      - source: known_hosts
+        target: /home/utente/.ssh/known_hosts
+
+  nodejs:
+    build: nodejs
+    working_dir: /var/www/app
+    volumes:
+      - ../:/var/www/app
+    networks:
+      - sensitive_serializer_network_dbal
+
+  servicedb:
+    image: mariadb:10.3.22
+    volumes:
+      - app_database:/var/lib/mysql
+      - ./mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./data/db:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=gestore_utenti
+    networks:
+      - sensitive_serializer_network_dbal
