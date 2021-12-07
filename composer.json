@@ -1,0 +1,60 @@
+{
+    "name": "matiux/broadway-sensitized-serializer-dbal",
+    "description": "Broadway sensitive serializer implementation using doctrine/dbal",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matteo Galacci",
+            "email": "m.galacci@gmail.com",
+            "homepage": "https://www.linkedin.com/in/matteogalacci/"
+        }
+    ],
+    "keywords": [
+        "cqrs",
+        "event sourcing",
+        "domain-driven design",
+        "ddd",
+        "sensitization",
+        "serializer",
+        "gdpr",
+        "dbal"
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.4|^8",
+        "doctrine/dbal": "^3.2",
+        "matiux/broadway-sensitized-serializer": "^0.1.8",
+        "symfony/polyfill-php80": "^1.23"
+    },
+    "require-dev": {
+        "ext-pdo_mysql": "*",
+        "ext-pdo_sqlite": "*",
+        "broadway/broadway": "^2.4",
+        "friendsofphp/php-cs-fixer": "^3.3",
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "psalm/plugin-mockery": "^0.9.1",
+        "psalm/plugin-phpunit": "^0.16.1",
+        "roave/security-advisories": "dev-latest",
+        "symfony/var-dumper": "^5.3",
+        "vimeo/psalm": "^4.13",
+        "weirdan/doctrine-psalm-plugin": "^2.0"
+    },
+    "suggest": {
+        "broadway/event-store-dbal": "Event store implementation using doctrine/dbal"
+    },
+    "autoload": {
+        "psr-4": {
+            "Matiux\\Broadway\\SensitiveSerializer\\Dbal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Matiux\\Broadway\\SensitiveSerializer\\Dbal\\": "tests/"
+        }
+    }
+}

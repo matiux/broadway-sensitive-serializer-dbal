@@ -1,0 +1,7 @@
+docker-compose.override.yml
+/vendor/
+.idea
+.php-cs-fixer.cache
+.phpunit.result.cache
+.coverage-clover.xml
+.coverage/
