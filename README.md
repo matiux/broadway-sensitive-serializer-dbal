@@ -1,7 +1,7 @@
 broadway-sensitive-serializer-dbal
 ===
 
-Broadway [sensitive serializer](https://github.com/matiux/broadway-sensitive-serializer-dbal) implementation 
+Broadway [sensitive serializer](https://github.com/matiux/broadway-sensitive-serializer) dbal implementation 
 using [doctrine/dbal](https://github.com/doctrine/dbal)
 
 
