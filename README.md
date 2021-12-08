@@ -12,7 +12,6 @@ using [doctrine/dbal](https://github.com/doctrine/dbal)
 [![psalm level](https://shepherd.dev/github/matiux/broadway-sensitive-serializer-dbal/level.svg)](https://shepherd.dev/github/matiux/broadway-sensitive-serializer-dbal)
 ![security analysis status](https://github.com/matiux/broadway-sensitive-serializer-dbal/actions/workflows/security-analysis.yml/badge.svg)
 ![coding standards status](https://github.com/matiux/broadway-sensitive-serializer-dbal/actions/workflows/coding-standards.yml/badge.svg)
-![continuous Integration](https://github.com/matiux/broadway-sensitive-serializer-dbal/actions/workflows/ci.yml/badge.svg)
 
 ## Setup for development
 
