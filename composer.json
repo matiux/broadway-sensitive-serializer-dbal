@@ -1,5 +1,5 @@
 {
-    "name": "matiux/broadway-sensitized-serializer-dbal",
+    "name": "matiux/broadway-sensitive-serializer-dbal",
     "description": "Broadway sensitive serializer implementation using doctrine/dbal",
     "type": "library",
     "license": "MIT",
@@ -27,7 +27,7 @@
     "require": {
         "php": "^7.4|^8",
         "doctrine/dbal": "^3.2",
-        "matiux/broadway-sensitized-serializer": "^0.1.8",
+        "matiux/broadway-sensitive-serializer": "^0.1",
         "symfony/polyfill-php80": "^1.23"
     },
     "require-dev": {
