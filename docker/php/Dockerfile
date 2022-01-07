@@ -1,12 +1,11 @@
-FROM matiux/php:7.4-fpm-bullseye-dev
+FROM matiux/php:fpm-7.4-bullseye-dev
 
 USER root
 
 ###> Dipendenze sviluppo
 RUN apt-get update \
     && apt-get -y upgrade \
-    && apt-get install -y --no-install-recommends \
-    graphviz #Per deptrac
+    && apt-get install -y --no-install-recommends
 ###> Fine dipendenze sviluppo
 
 COPY conf/xdebug-starter.sh /usr/local/bin/xdebug-starter
