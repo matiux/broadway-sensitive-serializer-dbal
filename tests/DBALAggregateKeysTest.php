@@ -46,8 +46,6 @@ class DBALAggregateKeysTest extends TestCase
      */
     public function it_allows_no_binary_uuid_converter_provided_when_not_using_binary(): void
     {
-        self::expectNotToPerformAssertions();
-
         new DBALAggregateKeys(
             Mockery::mock(Connection::class),
             'aggregate_keys',
@@ -174,14 +172,18 @@ class DBALAggregateKeysTest extends TestCase
         $persistedAggregateKey = $this->aggregateKeys->withAggregateId($id);
 
         self::assertNotNull($persistedAggregateKey);
-        self::assertNull($persistedAggregateKey->cancellationDate());
+
+        $cancellationDate = $persistedAggregateKey->cancellationDate();
+        self::assertNull($cancellationDate);
+
         self::assertTrue($persistedAggregateKey->exists());
         self::assertSame('eNCr1p73dS3kr3tk31', (string) $persistedAggregateKey);
 
         $persistedAggregateKey->delete();
         $this->aggregateKeys->update($aggregateKey);
+        $cancellationDate = $persistedAggregateKey->cancellationDate();
 
-        self::assertNotNull($persistedAggregateKey->cancellationDate());
+        self::assertNotNull($cancellationDate);
         self::assertFalse($persistedAggregateKey->exists());
         self::assertSame('', (string) $persistedAggregateKey);
     }
