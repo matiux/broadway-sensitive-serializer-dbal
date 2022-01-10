@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2256e49d6ea7e3f4ba9d51e1fdeeef0d",
+    "content-hash": "0fd9ffc2cd604341a94d851fb5b2b363",
     "packages": [
         {
             "name": "brick/math",
@@ -488,16 +488,16 @@
         },
         {
             "name": "matiux/broadway-sensitive-serializer",
-            "version": "v0.1.13",
+            "version": "v0.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matiux/broadway-sensitive-serializer.git",
-                "reference": "db566fa7d9c7902a486df0057dc510860dc287bd"
+                "reference": "cf075865dfe1e1c7e27c3b28fe587abd102dd333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matiux/broadway-sensitive-serializer/zipball/db566fa7d9c7902a486df0057dc510860dc287bd",
-                "reference": "db566fa7d9c7902a486df0057dc510860dc287bd",
+                "url": "https://api.github.com/repos/matiux/broadway-sensitive-serializer/zipball/cf075865dfe1e1c7e27c3b28fe587abd102dd333",
+                "reference": "cf075865dfe1e1c7e27c3b28fe587abd102dd333",
                 "shasum": ""
             },
             "require": {
@@ -526,7 +526,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Matiux\\Broadway\\SensitiveSerializer\\": "src/SensitiveSerializer/"
+                    "Matiux\\Broadway\\SensitiveSerializer\\": "src/SensitiveSerializer/",
+                    "Matiux\\Broadway\\SensitiveSerializer\\Example\\": "example/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -551,9 +552,9 @@
             ],
             "support": {
                 "issues": "https://github.com/matiux/broadway-sensitive-serializer/issues",
-                "source": "https://github.com/matiux/broadway-sensitive-serializer/tree/v0.1.13"
+                "source": "https://github.com/matiux/broadway-sensitive-serializer/tree/v0.1.15"
             },
-            "time": "2022-01-07T09:03:57+00:00"
+            "time": "2022-01-09T20:03:20+00:00"
         },
         {
             "name": "psr/cache",
@@ -3481,12 +3482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "5d1ae7d4b053281a29a24e6e21ede5f9ef245b05"
+                "reference": "11696ae4d8970456cbd1919c17e6bb2ddb63553a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/5d1ae7d4b053281a29a24e6e21ede5f9ef245b05",
-                "reference": "5d1ae7d4b053281a29a24e6e21ede5f9ef245b05",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/11696ae4d8970456cbd1919c17e6bb2ddb63553a",
+                "reference": "11696ae4d8970456cbd1919c17e6bb2ddb63553a",
                 "shasum": ""
             },
             "conflict": {
@@ -3511,6 +3512,7 @@
                 "bk2k/bootstrap-package": ">=7.1,<7.1.2|>=8,<8.0.8|>=9,<9.0.4|>=9.1,<9.1.3|>=10,<10.0.10|>=11,<11.0.3",
                 "bolt/bolt": "<3.7.2",
                 "bolt/core": "<4.1.13",
+                "bottelet/flarepoint": "<2.2.1",
                 "brightlocal/phpwhois": "<=4.2.5",
                 "buddypress/buddypress": "<7.2.1",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
@@ -3759,7 +3761,7 @@
                 "socialiteproviders/steam": "<1.1",
                 "spoonity/tcpdf": "<6.2.22",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
-                "ssddanbrown/bookstack": "<21.11.3",
+                "ssddanbrown/bookstack": "<21.12.1",
                 "stormpath/sdk": ">=0,<9.9.99",
                 "studio-42/elfinder": "<2.1.59",
                 "subrion/cms": "<=4.2.1",
@@ -3914,7 +3916,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-07T00:58:09+00:00"
+            "time": "2022-01-08T00:53:14+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -6167,22 +6169,22 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "4.18",
+            "version": "4.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "760baddcea5e0d2ba5bfb882a3243265ad1430d3"
+                "reference": "dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/760baddcea5e0d2ba5bfb882a3243265ad1430d3",
-                "reference": "760baddcea5e0d2ba5bfb882a3243265ad1430d3",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb",
+                "reference": "dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb",
                 "shasum": ""
             },
             "require": {
                 "amphp/amp": "^2.4.2",
                 "amphp/byte-stream": "^1.5",
-                "composer-runtime-api": "^2.0.0",
+                "composer/package-versions-deprecated": "^1.8.0",
                 "composer/semver": "^1.4 || ^2.0 || ^3.0",
                 "composer/xdebug-handler": "^1.1 || ^2.0 || ^3.0",
                 "dnoegel/php-xdg-base-dir": "^0.1.1",
@@ -6215,7 +6217,7 @@
                 "phpmyadmin/sql-parser": "5.1.0||dev-master",
                 "phpspec/prophecy": ">=1.9.0",
                 "phpunit/phpunit": "^9.0",
-                "psalm/plugin-phpunit": "^0.16.1",
+                "psalm/plugin-phpunit": "^0.16",
                 "slevomat/coding-standard": "^7.0",
                 "squizlabs/php_codesniffer": "^3.5",
                 "symfony/process": "^4.3 || ^5.0 || ^6.0",
@@ -6267,9 +6269,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vimeo/psalm/issues",
-                "source": "https://github.com/vimeo/psalm/tree/4.18"
+                "source": "https://github.com/vimeo/psalm/tree/4.18.1"
             },
-            "time": "2022-01-06T20:49:15+00:00"
+            "time": "2022-01-08T21:21:26+00:00"
         },
         {
             "name": "webmozart/assert",

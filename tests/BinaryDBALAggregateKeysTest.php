@@ -15,6 +15,7 @@ use LogicException;
 use Matiux\Broadway\SensitiveSerializer\DataManager\Domain\Aggregate\AggregateKey;
 use Matiux\Broadway\SensitiveSerializer\DataManager\Domain\Aggregate\AggregateKeys;
 use Matiux\Broadway\SensitiveSerializer\Dbal\DBALAggregateKeys;
+use Matiux\Broadway\SensitiveSerializer\Example\Shared\Key;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
@@ -65,7 +66,7 @@ class BinaryDBALAggregateKeysTest extends TestCase
         $this->expectException(InvalidIdentifierException::class);
         $this->expectExceptionMessage('Only valid UUIDs are allowed to by used with the binary storage mode.');
 
-        $aggregateKey = AggregateKey::create($id, 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create($id, Key::ENCRYPTED_AGGREGATE_KEY);
 
         $this->aggregateKeys->add($aggregateKey);
     }

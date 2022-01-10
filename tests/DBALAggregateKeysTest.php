@@ -13,6 +13,7 @@ use Matiux\Broadway\SensitiveSerializer\DataManager\Domain\Exception\AggregateKe
 use Matiux\Broadway\SensitiveSerializer\DataManager\Domain\Exception\DuplicatedAggregateKeyException;
 use Matiux\Broadway\SensitiveSerializer\Dbal\DBALAggregateKeys;
 use Matiux\Broadway\SensitiveSerializer\Dbal\DBALAggregateKeysException;
+use Matiux\Broadway\SensitiveSerializer\Example\Shared\Key;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
@@ -71,7 +72,7 @@ class DBALAggregateKeysTest extends TestCase
             false
         );
 
-        $aggregateKey = AggregateKey::create(Uuid::uuid4(), 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create(Uuid::uuid4(), Key::ENCRYPTED_AGGREGATE_KEY);
 
         $aggregateKeys->add($aggregateKey);
     }
@@ -86,7 +87,7 @@ class DBALAggregateKeysTest extends TestCase
         self::expectException(DuplicatedAggregateKeyException::class);
         self::expectExceptionMessage(sprintf('Duplicated aggregateKey with id %s', $id->toString()));
 
-        $aggregateKey = AggregateKey::create($id, 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create($id, Key::ENCRYPTED_AGGREGATE_KEY);
 
         $this->aggregateKeys->add($aggregateKey);
         $this->aggregateKeys->add($aggregateKey);
@@ -111,7 +112,7 @@ class DBALAggregateKeysTest extends TestCase
     {
         $id = Uuid::uuid4();
 
-        $aggregateKey = AggregateKey::create($id, 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create($id, Key::ENCRYPTED_AGGREGATE_KEY);
 
         $this->aggregateKeys->add($aggregateKey);
 
@@ -119,7 +120,7 @@ class DBALAggregateKeysTest extends TestCase
 
         self::assertNotNull($aggregateKey);
         self::assertNull($aggregateKey->cancellationDate());
-        self::assertSame('eNCr1p73dS3kr3tk31', (string) $aggregateKey);
+        self::assertSame(Key::ENCRYPTED_AGGREGATE_KEY, (string) $aggregateKey);
         self::assertTrue($aggregateKey->aggregateId()->equals($id));
     }
 
@@ -130,7 +131,7 @@ class DBALAggregateKeysTest extends TestCase
     {
         $id = Uuid::uuid4();
 
-        $aggregateKey = AggregateKey::create($id, 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create($id, Key::ENCRYPTED_AGGREGATE_KEY);
         $aggregateKey->delete();
 
         $this->aggregateKeys->add($aggregateKey);
@@ -153,7 +154,7 @@ class DBALAggregateKeysTest extends TestCase
         self::expectException(AggregateKeyNotFoundException::class);
         self::expectExceptionMessage(sprintf('AggregateKey not found for aggregate %s', $id->toString()));
 
-        $aggregateKey = AggregateKey::create($id, 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create($id, Key::ENCRYPTED_AGGREGATE_KEY);
 
         $this->aggregateKeys->update($aggregateKey);
     }
@@ -165,7 +166,7 @@ class DBALAggregateKeysTest extends TestCase
     {
         $id = Uuid::uuid4();
 
-        $aggregateKey = AggregateKey::create($id, 'eNCr1p73dS3kr3tk31');
+        $aggregateKey = AggregateKey::create($id, Key::ENCRYPTED_AGGREGATE_KEY);
 
         $this->aggregateKeys->add($aggregateKey);
 
@@ -177,7 +178,7 @@ class DBALAggregateKeysTest extends TestCase
         self::assertNull($cancellationDate);
 
         self::assertTrue($persistedAggregateKey->exists());
-        self::assertSame('eNCr1p73dS3kr3tk31', (string) $persistedAggregateKey);
+        self::assertSame(Key::ENCRYPTED_AGGREGATE_KEY, (string) $persistedAggregateKey);
 
         $persistedAggregateKey->delete();
         $this->aggregateKeys->update($aggregateKey);
