@@ -3,7 +3,9 @@ name: "Static analysis"
 on:
   pull_request: ~
   workflow_dispatch: ~
-  push: ~
+  push:
+    branches:
+      - master
 #  schedule:
 #    - cron: '0 */3 * * *'
 
@@ -21,13 +23,13 @@ jobs:
           php-version: "8.0"
           ini-values: memory_limit=-1
           tools: composer:v2, cs2pr
-          extensions: bcmath, mbstring, intl, sodium, json
+          extensions: bcmath, mbstring, intl, sodium, json, pdo_sqlite
 
       - name: Install dependencies
-        run: ./scripts/project/bin/project install_dependencies
+        run: ./tools/bin/project install_dependencies
 
       - name: "running static analysis"
-        run: ./scripts/project/bin/project psalm
+        run: ./tools/bin/project psalm
 
       - name: "calculating type coverage"
-        run: ./scripts/project/bin/project type-coverage
+        run: ./tools/bin/project type-coverage

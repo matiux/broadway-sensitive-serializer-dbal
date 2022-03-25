@@ -2,8 +2,10 @@ name: "Security analysis"
 
 on:
   pull_request: ~
-  push: ~
   workflow_dispatch: ~
+  push:
+    branches:
+      - master
 
 jobs:
   security-analysis:
@@ -19,10 +21,10 @@ jobs:
           php-version: "8.0"
           ini-values: memory_limit=-1
           tools: composer:v2, cs2pr
-          extensions: bcmath, mbstring, intl, sodium, json
+          extensions: bcmath, mbstring, intl, sodium, json, pdo_sqlite
 
       - name: Install dependencies
-        run: ./scripts/project/bin/project install_dependencies
+        run: ./tools/bin/project install_dependencies
 
       - name: "running security analysis ( psalm )"
-        run: ./scripts/project/bin/project security-analysis
+        run: ./tools/bin/project security-analysis
