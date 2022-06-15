@@ -27,7 +27,7 @@
     "require": {
         "php": "^7.4|^8",
         "doctrine/dbal": "^3.2",
-        "matiux/broadway-sensitive-serializer": "^0.2",
+        "matiux/broadway-sensitive-serializer": "^0.3",
         "symfony/polyfill-php81": "^1.23"
     },
     "require-dev": {
