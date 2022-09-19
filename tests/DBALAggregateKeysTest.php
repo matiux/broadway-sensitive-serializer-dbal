@@ -24,9 +24,9 @@ class DBALAggregateKeysTest extends TestCase
 
     protected function setUp(): void
     {
-        //?serverVersion=mariadb-10.3.22
-        //$connection = DriverManager::getConnection(['driver' => 'pdo_mysql', 'url' => 'mysql://root:root@servicedb:3306/aggregate_keys']);
-        //$connection = DriverManager::getConnection(['driver' => 'pdo_sqlite', 'path' => '../aggregate_keys.db']);
+        // ?serverVersion=mariadb-10.3.22
+        // $connection = DriverManager::getConnection(['driver' => 'pdo_mysql', 'url' => 'mysql://root:root@servicedb:3306/aggregate_keys']);
+        // $connection = DriverManager::getConnection(['driver' => 'pdo_sqlite', 'path' => '../aggregate_keys.db']);
         $connection = DriverManager::getConnection(['driver' => 'pdo_sqlite',  'memory' => true]);
         $schemaManager = $connection->createSchemaManager();
         $schema = $schemaManager->createSchema();

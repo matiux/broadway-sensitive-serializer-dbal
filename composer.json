@@ -35,6 +35,7 @@
         "ext-pdo_sqlite": "*",
         "broadway/broadway": "^2.4",
         "friendsofphp/php-cs-fixer": "^3.3",
+        "matiux/php-project-autopilot": "dev-master",
         "mockery/mockery": "^1.4",
         "phpunit/phpunit": "^9.5",
         "psalm/plugin-mockery": "^0.9.1",
@@ -56,5 +57,13 @@
         "psr-4": {
             "Tests\\Matiux\\Broadway\\SensitiveSerializer\\Dbal\\": "tests/"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "bash vendor/matiux/php-project-autopilot/src/configure.sh"
+        ],
+        "post-update-cmd": [
+            "bash vendor/matiux/php-project-autopilot/src/configure.sh"
+        ]
     }
 }

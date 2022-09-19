@@ -2,18 +2,14 @@ version: '3.9'
 
 secrets:
   id_rsa:
-    file: ~/.ssh/mado
+    file: ~/.ssh/id_rsa
   id_rsa.pub:
-    file: ~/.ssh/mado.pub
+    file: ~/.ssh/id_rsa.pub
   known_hosts:
     file: ~/.ssh/known_hosts
 
 services:
 
-  php_broadway_sensitive_serializer_dbal:
+  broadway-sensitive-serializer-dbal-php:
     environment:
       - AGGREGATE_MASTER_KEY="SS3kr3tK31"
-
-#  servicedb:
-#    ports:
-#      - "3310:3306"
