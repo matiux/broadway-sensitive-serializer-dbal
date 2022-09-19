@@ -23,18 +23,17 @@ rm -rf .git/hooks && ln -s ../scripts/git-hooks .git/hooks
 ```
 ### Install dependencies to run test
 ```shell
-./dc up -d
-./dc enter
-composer install
+make upd
+make composer ARG="install"
 ```
 ### Run test
 ```shell
-./dc up -d
-./dc enter
-project phpunit
+make build-php ARG="--no-cache"
+make upd
+make phpunit
 ```
 
-This repository uses github actions to perform some checks. If you want to test the actions locally you can use [act](https://github.com/nektos/act).
+This repository uses GitHub actions to perform some checks. If you want to test the actions locally you can use [act](https://github.com/nektos/act).
 For example if you want to check the action for static analysis
 ```
 act -P ubuntu-latest=shivammathur/node:latest --job static-analysis

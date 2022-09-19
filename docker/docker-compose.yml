@@ -4,20 +4,21 @@ volumes:
   app_database: {}
 
 networks:
-  sensitive_serializer_dbal_network:
-    name: sensitive_serializer_dbal_network
+  sensitive-serializer-dbal-network:
+    name: sensitive-serializer-dbal-network
     driver: bridge
 
 services:
 
-  php_broadway_sensitive_serializer_dbal:
+  broadway-sensitive-serializer-dbal-php:
+    image: broadway-sensitive-serializer-dbal-php
     build: php
     hostname: sensitive_serializer_dbal
     volumes:
       - ../:/var/www/app:delegated
       - ./data/shell_history:/home/utente/shell_history
     networks:
-      - sensitive_serializer_dbal_network
+      - sensitive-serializer-dbal-network
     environment:
       - HISTFILE=/home/utente/shell_history/.x_history
     secrets:
@@ -28,22 +29,11 @@ services:
       - source: known_hosts
         target: /home/utente/.ssh/known_hosts
 
-  nodejs:
+  broadway-sensitive-serializer-dbal-nodejs:
+    image: broadway-sensitive-serializer-dbal-nodejs
     build: nodejs
     working_dir: /var/www/app
     volumes:
       - ../:/var/www/app
     networks:
-      - sensitive_serializer_dbal_network
-
-#  servicedb:
-#    image: mariadb:10.3.22
-#    volumes:
-#      - app_database:/var/lib/mysql
-#      - ./mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
-#      - ./data/db:/docker-entrypoint-initdb.d
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=root
-#      - MYSQL_DATABASE=aggregate_keys
-#    networks:
-#      - sensitive_serializer_dbal_network
+      - sensitive-serializer-dbal-network
